@@ -75,11 +75,10 @@ class _OcrPageState extends State<OcrPage> {
       if (_nowScanning) {
         return;
       }
-      AppLogger.d('スキャンを開始します');
+
       setState(() => _nowScanning = true);
 
       final inputImage = _processCameraImage(image, camera.sensorOrientation);
-      AppLogger.d('inputImageを取得しました。');
       if (inputImage != null) {
         // ここからテキストを抽出するための処理です。Google ML KitのTextRecognizerを使っていきます。
         final textRecognizer = TextRecognizer(script: TextRecognitionScript.japanese);
@@ -88,11 +87,11 @@ class _OcrPageState extends State<OcrPage> {
         final firstBlockText = recognizedText.blocks.first;
         AppLogger.d('読み取った ${firstBlockText.text}');
         if (firstBlockText.text.isNotEmpty) {
-          // TODO 読み取れたら終了
+          // TODO 読み取れたらストリームへ流す
           return;
         }
       }
-      AppLogger.d('スキャンを開始します');
+
       setState(() => _nowScanning = false);
     });
   }
@@ -157,12 +156,8 @@ class _OcrPageState extends State<OcrPage> {
             _ViewCamera(_cameraController),
             const SizedBox(height: 8),
             const Padding(
-              padding: EdgeInsets.all(16),
-              child: Text(AppStrings.ocrPageOverviewLabel),
-            ),
-            const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
-              child: _ViewReadNumberText(),
+              child: _ViewReadTextArea(),
             ),
           ],
         ),
@@ -203,17 +198,12 @@ class _ViewCamera extends StatelessWidget {
   }
 }
 
-class _ViewReadNumberText extends ConsumerWidget {
-  const _ViewReadNumberText({Key? key}) : super(key: key);
+class _ViewReadTextArea extends ConsumerWidget {
+  const _ViewReadTextArea({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return TextFormField(
-      initialValue: ref.watch(readTextSNProvider),
-      enabled: false,
-      decoration: const InputDecoration(
-        hintText: AppStrings.ocrPageNumberLabel,
-      ),
-    );
+    // TODO ここリストにして、読み取ったテキストをどんどん流していく
+    return Container();
   }
 }

@@ -12,16 +12,15 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(AppStrings.appName),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Padding(
-              padding: EdgeInsets.all(16),
-              child: Text(
-                AppStrings.homePageOverviewLabel,
-              ),
-            ),
+            const Text(AppStrings.homePageOverviewLabel),
+            const SizedBox(height: 8),
+            const Text(AppStrings.homePageDetailLabel),
+            const SizedBox(height: 8),
             ElevatedButton.icon(
               onPressed: () {
                 OcrPage.start(context);

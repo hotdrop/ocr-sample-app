@@ -4,8 +4,8 @@ class AppStrings {
   static const String appName = 'OCRアプリ';
 
   static const String homePageOverviewLabel = '[Start]ボタンを押すとOCR画面を表示します。';
+  static const String homePageDetailLabel = '''画面が表示されると、画面上部でカメラが起動します。
+  \n読み込ませたい画像を映してください。
+  \n映したテキストの読み取りに成功すると画面下部に結果が表示されていきます。''';
   static const String homePageStartCameraButton = 'Start';
-
-  static const String ocrPageOverviewLabel = 'カメラに読み取りたいテキストを映してください。読み取りが成功すると下の枠に表示されます。';
-  static const String ocrPageNumberLabel = '読み取ったテキスト';
 }
