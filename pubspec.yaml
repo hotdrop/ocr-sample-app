@@ -1,0 +1,33 @@
+name: ocr_sample_app
+description: A sample app that reads text with OCR using google_ml_kit
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.1 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # design
+  flutter_riverpod: ^1.0.3
+
+  # UI support
+  camera: ^0.10.0+1
+  google_mlkit_text_recognition: ^0.4.0
+
+  # other
+  logger: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
