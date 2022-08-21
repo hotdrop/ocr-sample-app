@@ -8,4 +8,6 @@ class AppStrings {
   \n読み込ませたい画像を映してください。
   \n映したテキストの読み取りに成功すると画面下部に結果が表示されていきます。''';
   static const String homePageStartCameraButton = 'Start';
+
+  static const String ocrPageEmptyResultLabel = 'ここに検出したテキストが表示されます。';
 }
